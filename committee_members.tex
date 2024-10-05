@@ -1,0 +1,78 @@
+% Sample thesis committee page for mitthesis.cls
+% Version 1.00, 2024/08/24
+%
+% This page is not required by the MIT Libraries, but some departments require it
+%
+% Insert between title page and abstract page.
+% Format this page in any way that you like.  
+% Add supervisor titles, degrees, and departments as appropriate
+
+%%%%% FORMATTING COMMANDS %%%%%%%%%%%%%%%%%%
+
+%% Format title
+\NewDocumentCommand\CommitteePageTitle{m}{
+	\vspace*{75pt}%36pt}
+	\IfPackageLoadedTF{microtype}
+		{\textls*{\Large\textbf{\MakeUppercase{#1}}}}
+		{{\Large\textbf{\MakeUppercase{#1}}}}%
+	\pdfbookmark[0]{#1}{Committee}%
+	\vspace*{10pt}%
+}
+% \textls* produces additional letter separation (appropriate for capitalized display text),
+% PROVIDED THAT \usepackage{microtype} has been loaded in the preamble. 
+% The extra space added is 100/1000 em (adjustable, see package documentation).
+
+%% Format committee member subheadings
+\NewDocumentCommand\Role{m}{
+	\vspace*{50pt}%25pt}
+	\IfPackageLoadedTF{microtype}
+		{\textls*{\large{\textsc{#1}}}}
+		{{\large\textsc{#1}}}%
+	\vspace*{12pt}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{flushright}
+
+\CommitteePageTitle{Comité de tesis}
+
+\Role{Director de Tesis}
+
+ \textbf{Victor Manuel Alvarado Martínez} \\
+ {\itshape
+ Doctor en Ciencias \\
+ Departamento de Ingeniería Electrónica \\
+ }
+
+\Role{Codirectora de Tesis}
+
+\textbf{Ma. Guadalupe López López} \\
+{\itshape
+	Doctora en Ciencias \\
+	Departamento de Ingeniería Electrónica \\
+}
+
+
+\Role{Revisores de tesis}
+
+ \textbf{José Francisco Gómez Aguilar} \\
+ {\itshape
+   Doctor en Física \\
+   Departamento de Ingeniería Electrónica \\[18pt]
+ }
+
+ \textbf{Ricardo Fabricio Escobar Jiménez}\\
+ {\itshape
+   Doctor en Ciencias \\
+   Departamento de Ingeniería Electrónica \\[18pt]
+ }
+
+ \textbf{Jarniel García Morales} \\
+ {\itshape
+   Doctor en Ciencias \\
+   Departamento de Ingeniería Electrónica \\
+ }
+
+\end{flushright}
+
+\cleardoublepage
