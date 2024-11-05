@@ -1,0 +1,234 @@
+% !TeX document-id = {71168793-e348-4aec-af7f-bf465c248628}
+% !TEX encoding = UTF-8 Unicode
+% !BIB TS-program = biber
+
+% Es una modificacion del template del MIT by 0mR2r0
+% Version: 1.0, 2024/11/04
+% Autor: John H. Lienhard, copyright 2024. Reuse under the MIT license: https://ctan.org/license/mit 
+% El manual lo puedes encontrar aqui: https://ctan.org/pkg/mitthesis
+
+%% No modifiques esto sino sabes lo que hace.
+\DocumentMetadata{ 
+	pdfstandard = a-2b,
+	pdfversion  = 1.7,
+	lang		= es-MX,
+%	 pdfversion  = 2.0,
+%    pdfstandard = a-4,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[twoside]{mitthesis}
+%Para cambiar los tipos de fuentes vienen las siguientes opciones
+% fontset=newtx, fontset=libertine, fontset=newtx-sans-text, fontset=heros-stix2, fontset=stix2
+
+%% ~~~~~~~~~~~~~~~~~~~~~~~~PAQUETE DE IDIOMA~~~~~~~~~~~~~~~~~~~~
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+\usepackage[spanish]{babel}
+%% ~~~~~~~~~~~~~~~~~~~~~~~~PAQUETES PARA INTRODUCIR CODIGO~~~~~~~~~~~~~~~~~~~~
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+\usepackage{listings}%   documentation is here https://ctan.org/pkg/listings
+
+%% ~~~~~~~~~~~~~~~~~~~~~~~~PAQUETE DE FORMULAS QUIMICAS~~~~~~~~~~~~~~~~~~~~
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+\usepackage[version=4]{mhchem}%   documentation at https://ctan.org/pkg/mhchem
+
+%% ~~~~~~~~~~~~~~~~~~~~~~~~PAQUETES RELACIONADOS CON TABLAS~~~~~~~~~~~~~~~~~~~~
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+\usepackage{booktabs}% publication quality tables (https://ctan.org/pkg/booktabs)
+\usepackage{array}% Additional options for column formats (https://ctan.org/pkg/array)
+\usepackage{dcolumn}% For alignment of numbers on the decimal place (https://ctan.org/pkg/dcolumn) 
+	\newcolumntype{d}[1]{D{.}{.}{#1}}% use with dcolumn package
+	% syntax: d{x.y} where x is max number of digits before decimal and y is max number after.
+\usepackage{longtable}% typeset multi-page tables (https://ctan.org/pkg/longtable)
+%\usepackage{tabularx}% adjustable-width columns in tabular (https://ctan.org/pkg/tabularx)
+%% ~~~~~~~~~~~~~~~~~~~~~~~~PAQUETES PARA MEJORAR TIPOGRAFIA~~~~~~~~~~~~~~~~~~~~
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+\usepackage{microtype}% typographic fine-tuning, used in sample thesis committee page, but also acting globally on the text 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~RUTA DE CARPETA DE IMAGENES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Cambie el nombre a la carpeta de su eleccion o sino existe crear una nueva con el mismo nombre 'figuras'
+\graphicspath{figuras/}% 
+
+
+%%%%%%%%%  Configuracion para biblatex  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Referencias por numero
+\usepackage[style=ext-numeric-comp,giveninits=true,maxbibnames=10,sorting=none]{biblatex}
+
+%% Referencias del estilo IEEE
+% \usepackage[style=ieee,maxbibnames=10,sorting=none]{biblatex}% style=ext-numeric-comp,articlein=false,giveninits=true
+%	 \DefineBibliographyStrings{english}{url= \textsc{url} ,  }% replaces the IEEE default "[Online]. Available" by "URL"
+
+%% author-year style citations and references 
+%% use \parencite, not \cite, when you want "(Author, year)"
+%% The sample files are not set up to include parentheses.
+% \usepackage[style=authoryear, maxbibnames=10]{biblatex} 
+
+
+\addbibresource{bibliografia_main.bib}%% <== Este es el archivo de citas
+
+
+
+%%%%%%%%%%%  Metadatos del archivo PDF  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{%
+	pdfsubject={Plantilla modificada del Massachusetts Institute of Technology},
+	%  Descripcion breve del estado de la tesis
+% 
+	pdfkeywords={Centro Nacional de Investigación y Desarrollo Tecnológico, Cenidet},
+	% Palabras clave que idenfiquen tu trabajo de tesis
+	% Si desea incluir los autores de la tesis 
+	
+	pdfurl={},
+	% Si tienes una direccion del repositorio de la tesis agregala, sino elimina o comenta esta linea.
+	%	
+	pdfcontactemail={},
+	% Indique su correo electronico permanente 
+	% Sino dejar en blanco
+%
+	pdfauthortitle={},
+	% Si ya tienes un grado, indicarlo
+}
+
+%%%%%%%%%%%%%%  FIN DEL PREAMBULO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%% TITULO DE LA TESIS %%%%%%%%%%
+
+\title{Diseño, construcción y puesta en marcha de un regenerador de energía para el desarrollo y validación de estrategias de modelado matemático}
+
+%%%NOMBRE DEL AUTOR
+\Author{Omar Arturo Castillo-Méndez}{Departamento de ingenieria electrónica}
+
+% For two degrees from one department, leave the department argument blank for the second degree {}.
+\Degree{Doctorado en Ciencias}{Departamento de ingenieria electrónica}
+%\Degree{Master of Science in Physics}{}
+%\Degree{Bachelor of Science in Mechanical Engineering}{Department of Mechanical Engineering}
+
+% Si tienes director(a) //codirector(a) de tesis.
+\Supervisor{Victor Manuel Alvarado Martinez}{Doctor en Ciencias}
+\Supervisor{Ma. Guadalupe López López}{Doctor en Ciencias}
+% \Supervisor{Edward C. Pickering}{Professor of Physics, and \\ \> Professor of Something Else}
+% \Supervisor{Secunda Castor}{Professor of Research}
+% \Supervisor{Quintus Castor}{Professor of Log Dams}
+
+% Professor who formally accepts theses for your department (e.g., the Graduate Officer, Professor Sméagol,...)
+% If more than one department, use more than once
+\Acceptor{José Francisco Gómez Aguilar}{Doctor en Física}{Cenidet}
+\Acceptor{Ricardo Fabricio Escobar Jiménez}{Doctor en Ciencias}{Cenidet}
+\Acceptor{Jarniel García Morales}{Doctor en Ciencias}{Cenidet} 
+% \\ \> Third title}
+% \Acceptor{Quarta Castor}{Professor of Lodge Building}{Graduate Officer, Department of Mechanical Engineering}
+%%%  If you need to reduce vertical space, put the acceptor title in the second argument and leave the third blank, {}.
+% \Acceptor{Primus Castor}{Professor and Undergraduate Officer, Department of Physics}{}
+
+% Usage: \DegreeDate{Month}{year} Fecha de obtencion de grado
+% Usar fechas validas Enero, Febrero, Marzo, Abril, Mayo, ..., Diciembre
+\DegreeDate{Septiembre}{2026}
+
+% Fecha de la tesis autorizacion de entrega al departamento
+\ThesisDate{Junio, 2026}
+
+
+%%%%%%  Choose whether to have a CREATIVE COMMONS License  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% If you are using a cc license, put details of your cc license here. 
+% Omit this command if you are not using a cc license.
+%
+\CClicense{CC BY-NC-ND 4.0}{https://creativecommons.org/licenses/by-nc-nd/4.0/}
+%
+
+%%%%%%%  Solutions for overflowing titlepage  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% If your title page is overflowing (from too many names, degrees, etc.):
+%
+% (a) you can reduce the 12pt and 18pt skips between various blocks to 6pt with this command:
+%
+% \Tighten
+%
+% (b)  you can scale down the Signature block at the bottom with this command:
+%
+% \SignatureBlockSize{\small}  %or this one \SignatureBlockSize{\footnotesize}
+%
+% (c) you can put the acceptor name and title onto two lines, rather than three like this:
+%
+% \Acceptor{Tertius Castor}{Professor and Graduate Officer, Department of Research}{}
+%
+% (d) you can change the font size of the author name[s] with
+%
+%	\AuthorNameSize{\normalsize}
+%
+% (e) and you can omit any previous degrees from the title page, instead mentioning them in the biographical sketch
+
+% Also, if you prefer to keep the text toward the top of the page with most white space at the bottom, you
+% can use this command to squash all of the vertical glue (stretchy space) with this command:
+%
+% \Squash 
+%
+% This command is useful when the text has not already reach the bottom of the page, since the glue gets squashed automatically
+% when the page is too full.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Make titlepage
+\maketitle
+
+%%%%%%%%% Contents that you need to write follows! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \includeonly{acknowledgments,biography,chapter1,chapter2,...,appendixa,...} 
+%   for usage of includeonly, see https://latexref.xyz/_005cinclude-_0026-_005cincludeonly.html
+
+%%% Frontmatter (write this material in the mentioned files)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This page is optional. Edit the file committee_members.tex 
+\include{committee_members}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Abstract ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% You only need to the text of the abstract in the file abstract.tex
+%\begin{abstract}
+%	\input{abstract.tex}% use \input rather than \include because we're inside an environment
+%\end{abstract}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Agradecimientos~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%\include{acknowledgments}% acknowledgments.tex (.tex extension is presumed by \include) 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Biografia~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%\include{biography}% biography.tex (optional, see https://libraries.mit.edu/distinctive-collections/thesis-specs/#format)
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Tabla de contenidos ~~~~~~~~~~~~~~~~~~~~~~~~
+%Descomentar para agregar las demas tablas
+\tableofcontents
+%\listoffigures
+%\listoftables
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Capitulos~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ \include{chapter1}% .tex extension is presumed
+% \include{chapter2}
+%\include{chapter3}
+%\include{chapter4}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Apendices~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%\appendix
+%\include{appendixa}
+%\include{appendixb}
+
+%%% ~~~~~~~~~~~~~~~~~~~~~~~~~Bibliografia (biblatex) ~~~~~~~~~~~~~~~~~~~~~~~
+
+\defbibheading{bibintoc}{\chapter*{#1}\addcontentsline{toc}{backmatter}{\refname}} 
+% this sets the title of contents name for bibliography to \refname (= References)
+% change "backmatter" to "chapter" if you prefer a bold face entry in the table of contents
+
+\printbibliography[title={\refname},heading=bibintoc]
+
+% biblatex also supports chapter-by-chapter bibliography, https://tex.stackexchange.com/a/296502/119566
+% see the biblatex manual, section 3.14.3
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~ Opcional para natbib ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%%   use an appropriate style (.bst) and your own .bib file[s]
+
+%\bibliographystyle{plainnat}
+%\bibliography{mitthesis-sample.bib}
+
+\end{document} 
+ 
