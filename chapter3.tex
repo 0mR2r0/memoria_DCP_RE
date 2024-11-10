@@ -1,0 +1,54 @@
+\chapter{Dimensionamiento}
+
+\section{Dimensionamiento del compresor}
+De lo anterior, la informaci\'on del caudal proveniente del compresor se encuentra indicada en pies c\'ubicos por minuto estándar, para obtener el dato de la velocidad se necesita realizar una conversi\'on a pies cúbicos por minuto (CFM)
+\newline
+Si los SCFM es un flujo volum\'etrico a condiciones estándar de 14.7 psi a $20^\circ C$, para convertir a CFM implica las condiciones actuales de operaci\'on, de tal manera que se deben tomar las condiciones de presi\'on atmosférica y temperatura de la ubicación geográfica. Para este caso se tomaran las condiciones del CENIDET, con los siguientes parámetros:
+\begin{itemize}
+	\item Presión atmosférica: 0.9938317 atm
+	\item Temperatura ambiental normal: $23.2^\circ C$
+\end{itemize}
+Según la Ley de los gases ideales, la densidad es proporcional a la presión e inversamente proporcional a la temperatura\cite{Cengel2022}:
+\begin{equation}
+	PV=mRT
+\end{equation}
+\begin{equation}
+	\rho=\frac{m}{V}=\frac{P}{RT}
+\end{equation}
+Donde:
+\newline
+$P$ es la presión expresado en psi(pulgadas por centímetro cuadrado).
+\newline
+$V$ es el volumen expresado en $m^3$.
+\newline
+$m$ es la masa del gas expresado en kilogramos.
+\newline
+$R$ es la constante de los gases ideales.
+\newline
+$T$ es la temperatura expresada en grados Rankine ($^\circ R$).
+\newline
+$\rho$ es la densidad del aire expresada en $\frac{Kg}{m^3}$
+\newline
+Por lo tanto se puede deducir la siguiente formula para convertir de SCFM a CFM:
+\begin{equation}
+	CFM=\frac{SCFM}{\frac{P_{actual}}{14.7}*\frac{528^\circ R}{T_{actual}}}
+\end{equation}
+Realizando las respectivas sustituciones y convirtiendo el valor de la temperatura de Celsius a  Rankine, y la presi\'on de atmósferas a psi se tiene:
+\begin{equation}
+	CFM=\frac{3.7}{\frac{14.62}{14.7}*\frac{528^\circ R}{533.43^\circ R}}
+\end{equation}
+Por lo tanto los CFM que proporciona el compresor seleccionado es de 3.7585 CFM.
+\newline
+Para tener el valor correspondiente de la velocidad del flujo de aire después de la electrov\'alvula, se necesita realizar la conversión de CFM a $\frac{l}{min}$. Donde 1 CFM es equivalente a 0.47 $\frac{l}{s}$. De la capacidad de flujo obtenido anteriormente el caudal que puede proporcionar es: 1.7738 $\frac{l}{s}$
+\newline
+El caudal viene definido por la siguiente expresi\'on donde:
+\begin{equation}
+	Q=\frac{V}{t}
+\end{equation}
+para conocer la velocidad de flujo de un caudal dado se esta considerando una tubería, se considera el área transversal de la tubería($A=\pi r^2$) de selección para un diámetro de 5mm de diámetro. 
+\newline
+La ecuación anterior queda de la siguiente manera: 
+\begin{equation}
+	v=\frac{Q}{\pi r^2}
+\end{equation}
+Por lo tanto la velocidad que puede proporcionar el compresor a través de la electrov\'alvula para un diámetro de 5 mm es aproximadamente de: \textit {90.339} $\frac{m}{s}$\cite{Atlas2014}.

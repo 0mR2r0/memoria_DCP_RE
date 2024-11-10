@@ -1,59 +1,51 @@
-% From mitthesis package
-% Version: 1.06, 2024/07/09
-% Documentation: https://ctan.org/pkg/mitthesis
 
+\chapter{Marco conceptual}
 
-\chapter{Capitulo}
-
-\subsubsection{C\'alculo de la velocidad de salida del compresor}
-De lo anterior, la informaci\'on del caudal proveniente del compresor se encuentra indicada en pies c\'ubicos por minuto estándar, para obtener el dato de la velocidad se necesita realizar una conversi\'on a pies cúbicos por minuto (CFM)
-\newline
-Si los SCFM es un flujo volum\'etrico a condiciones estándar de 14.7 psi a $20^\circ C$, para convertir a CFM implica las condiciones actuales de operaci\'on, de tal manera que se deben tomar las condiciones de presi\'on atmosférica y temperatura de la ubicación geográfica. Para este caso se tomaran las condiciones del CENIDET, con los siguientes parámetros:
+\section{Almacenamiento de energ\'ia t\'ermica}
+En el desarrollo de sistemas de almacenamiento de energ\'ia t\'ermica se deben considerar los siguientes factores:
 \begin{itemize}
-	\item Presión atmosférica: 0.9938317 atm
-	\item Temperatura ambiental normal: $23.2^\circ C$
+	\item \textbf{Capacidad}: Esta característica del sistema depende el proceso de almacenamiento, el medio y el tama\~no que tendrá, por ejemplo el agua tiene una capacidad de almacenar calor de $10-50 \frac{kWh}{t}$.La capacidad de almacenamiento tiene un importante efecto en la operación del resto del sistema.
+	\item \textbf{Potencia}: Es la raz\'on de carga y descarga relacionados con la potencia necesaria. De manera general, se define que tan r\'apido la energ\'ia puede almacenarse en un sistema y descargarse.
+	\item \textbf{Eficiencia}: Esta relaci\'on entre la energ\'ia que suministra el usuario con la energ\'ia que se requiere para cargar el sistema. Esto considera la perdida de energ\'ia durante el almacenamiento en un periodo de carga y descarga. Generalmente la eficiencia del calor sensible en un sistema esta en un rango del 50$\%$ - 90$\%$
+	\item \textbf{Periodo de almacenamiento}: La evaluaci\'on económica de un sistema de almacenamiento t\'ermico depende significativamente de la aplicaci\'on, los requerimientos de operaci\'on y la frecuencia de almacenamiento.
+	\item \textbf{Costo}: Esto se refiere a la capacidad o potencia del almacenamiento del sistema relacionado con los costos de operaci\'on, equipo de almacenamiento y tiempo de vida \'util. El costo incluye desde el inicio del almacenamiento medio, contenedores y aislamientos. De manera general, los costos de estos sistemas pueden variar entre 0.15-10$\frac{\$}{kWh}$ para sistemas de almacenamiento de calor sensible.
 \end{itemize}
-Según la Ley de los gases ideales, la densidad es proporcional a la presión e inversamente proporcional a la temperatura\cite{Cengel2022}:
+Cabe mencionar que una buena unidad de almacenamiento debe tener una eficiencia mayor al 80$\%$. Los requerimientos t\'ecnicos para estos sistemas deben incluir:
+\begin{itemize}
+	\item Alta densidad energ\'etica en el material del almacenamiento, que se traduce en el costo por el espacio ocupado y su aislamiento.
+	\item Buena transferencia de calor entre el fluido de transferencia y el medio de almacenamiento con baja p\'erdida t\'ermica.
+	\item Mec\'anica y qu\'imicamente estable material de almacenamiento, entre mejor sea su costo incrementa.
+	\item Reversibilidad para gran cantidad ciclos de carga y descarga. El costo del intercambiador para la carga y para la descarga es importante\cite{Yatish2017}.
+\end{itemize}
+
+\subsection{Almacenamiento de calor sensible}
+Los almacenes de calor sensible, usan la capacidad calor\'ifica y el cambio de la temperatura del material del almacén durante el proceso de carga y descarga. La cantidad de calor almacenado depende de su capacidad calor\'ifica, de su cambio de temperatura y la cantidad de almacenamiento t\'ermico que posee el material de interés\cite{Yatish2017}.
 \begin{equation}
-	PV=mRT
+	Q=\rho V C_p \Delta T
 \end{equation}
+Donde: 
+\newline
+$Q$ es la cantidad de calor almacenado en Joules [$J$] 
+\newline
+$\rho$ es la densidad del material de almacenamiento [$\frac{kg}{L}$]
+\newline
+$C_p$ es el calor espec\'ifico sobre el rango de temperatura de operaci\'on [$\frac{J}{kg K}$]
+\newline
+$V$ es el volumen del material de almacenamiento usado [$L$]
+\newline
+$\Delta T$ es el rango de la temperatura operaci\'on [$^\circ C$]
+\newline
+\newline
+La conductividad  t\'ermica del material afecta directamente la raz\'on carga y la descarga  en el almacenamiento, y se puede obtener de la siguiente expresi\'on:
 \begin{equation}
-	\rho=\frac{m}{V}=\frac{P}{RT}
+	\lambda=\rho C_p \alpha
 \end{equation}
 Donde:
 \newline
-$P$ es la presión expresado en psi(pulgadas por centímetro cuadrado).
+$\lambda$ es la conductividad t\'ermica [$\frac{W}{m K}$]
 \newline
-$V$ es el volumen expresado en $m^3$.
+$\rho$ es la densidad [$\frac{kg}{m^3}$]
 \newline
-$m$ es la masa del gas expresado en kilogramos.
+$C_p$ es la capacidad calor\'ifica [$\frac{J}{kg K}$]
 \newline
-$R$ es la constante de los gases ideales.
-\newline
-$T$ es la temperatura expresada en grados Rankine ($^\circ R$).
-\newline
-$\rho$ es la densidad del aire expresada en $\frac{Kg}{m^3}$
-\newline
-Por lo tanto se puede deducir la siguiente formula para convertir de SCFM a CFM:
-\begin{equation}
-	CFM=\frac{SCFM}{\frac{P_{actual}}{14.7}*\frac{528^\circ R}{T_{actual}}}
-\end{equation}
-Realizando las respectivas sustituciones y convirtiendo el valor de la temperatura de Celsius a  Rankine, y la presi\'on de atmósferas a psi se tiene:
-\begin{equation}
-	CFM=\frac{3.7}{\frac{14.62}{14.7}*\frac{528^\circ R}{533.43^\circ R}}
-\end{equation}
-Por lo tanto los CFM que proporciona el compresor seleccionado es de 3.7585 CFM.
-\newline
-Para tener el valor correspondiente de la velocidad del flujo de aire después de la electrov\'alvula, se necesita realizar la conversión de CFM a $\frac{l}{min}$. Donde 1 CFM es equivalente a 0.47 $\frac{l}{s}$. De la capacidad de flujo obtenido anteriormente el caudal que puede proporcionar es: 1.7738 $\frac{l}{s}$
-\newline
-El caudal viene definido por la siguiente expresi\'on donde:
-\begin{equation}
-	Q=\frac{V}{t}
-\end{equation}
-para conocer la velocidad de flujo de un caudal dado se esta considerando una tubería, se considera el área transversal de la tubería($A=\pi r^2$) de selección para un diámetro de 5mm de diámetro. 
-\newline
-La ecuación anterior queda de la siguiente manera: 
-\begin{equation}
-	v=\frac{Q}{\pi r^2}
-\end{equation}
-Por lo tanto la velocidad que puede proporcionar el compresor a través de la electrov\'alvula para un diámetro de 5 mm es aproximadamente de: \textit {90.339} $\frac{m}{s}$\cite{Atlas2014}
+$\alpha$ es la difusividad t\'ermica [$\frac{m^2}{s}$]
