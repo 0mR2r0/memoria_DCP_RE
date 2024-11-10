@@ -1,5 +1,37 @@
 \chapter{Dimensionamiento}
 
+\section{Selección de compresor}
+Los datos del compresor y la electrov\'alvula seleccionado para la elaboraci\'on de la planta experimental, es el siguiente:
+\newline
+\textbf{Compresor de aire DEWALT modelo: D2002M-WK}
+\begin{itemize}
+	\item 6 galones de capacidad.
+	\item Presi\'on m\'axima: 165 psi
+	\item SCFM a 40 pisg: 3.7 / SCFM a 90 psig: 2.6
+	\item Potencia: 1.5 HP
+	\item Alimentaci\'on de 127VAC
+\end{itemize}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.3]{./figuras/compresor.png}
+	\caption{Compresor DeWALT Modelo D2002M-WK \texttrademark}
+\end{figure}
+
+Con la informaci\'on anterior se puede tomar como punto de partida el caudal que puede proporcionar el compresor de 3.7 SCFM a 40 psig, con el supuesto de que la presión de trabajo no exceder\'a a 3 bar(43.6 psig).
+\newline
+La electrovalvula que controlar\'a la apertura del aire es la siguiente de la marca PNEUMAX \texttrademark , con n\'umero de parte \textit {808.32.0.1.M2}, la cual tiene las siguientes características:
+\begin{itemize}
+	\item Presi\'on m\'axima de trabajo: 10 Bar.
+	\item Temperatura de trabajo: Min $- 5^\circ C $ y Max $50^\circ C$.
+	\item Caudal m\'aximo de trabajo a 6 Bar : 520 $\frac{Nl}{min}$
+\end{itemize}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=1]{./figuras/electrovalvula.png}
+	\caption{Electrov\'alvula PNEUMAX \texttrademark n\'umero de parte: 808.32.0.1.M2 }
+\end{figure}
+
+
 \section{Dimensionamiento del compresor}
 De lo anterior, la informaci\'on del caudal proveniente del compresor se encuentra indicada en pies c\'ubicos por minuto estándar, para obtener el dato de la velocidad se necesita realizar una conversi\'on a pies cúbicos por minuto (CFM)
 \newline
@@ -8,7 +40,7 @@ Si los SCFM es un flujo volum\'etrico a condiciones estándar de 14.7 psi a $20^
 	\item Presión atmosférica: 0.9938317 atm
 	\item Temperatura ambiental normal: $23.2^\circ C$
 \end{itemize}
-Según la Ley de los gases ideales, la densidad es proporcional a la presión e inversamente proporcional a la temperatura\cite{Cengel2022}:
+Según la Ley de los gases ideales, la densidad es proporcional a la presión e inversamente a la temperatura\cite{Cengel2022}:
 \begin{equation}
 	PV=mRT
 \end{equation}

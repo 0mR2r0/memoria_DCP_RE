@@ -869,7 +869,7 @@
 \tl_new:N \g__copyright_mitpermissionlast_tl
 
 \tl_new:N \g_copyright_mitpermission_tl
-\tl_gset:Nn \g__copyright_mitpermissionlast_tl {to\ MIT\ a\ nonexclusive,\ worldwide,\ irrevocable,\ royalty-free\ license\ to\ exercise\ any\ and\ all\ rights\ under\ copyright,\ including\ to\ reproduce,\ preserve,\ distribute\ and\ publicly\ display\ copies\ of\ the\ thesis,\ or\ release\ the\  thesis\ under\ an\ open-access\ license.}
+\tl_gset:Nn \g__copyright_mitpermissionlast_tl { \ \ }
 
 \bool_new:N \g__cclicense_tf_bool
 \bool_gset_false:N \g__cclicense_tf_bool
@@ -951,7 +951,7 @@
 %	
 	\bool_if:NTF \g__cclicense_tf_bool { 
 		\tl_gset:Nn \g_copyright_copyrightlicencse_tl 
-			{This\ work\ is\ licensed\ under\ a\ \mbox{\g_copyright_cclicensetext_tl}\ license.\par\g_copyright_mitpermission_tl}
+			{Este\ trabajo\ esta\ bajo\ la \ licencia\ de\ \mbox{\g_copyright_cclicensetext_tl}\ \par\g_copyright_mitpermission_tl}
 		\tl_gset:Nn \g_copyright_pdfrightstext_tl 	 
 			{This\ work\ is\ licensed\ under\ a\ \g_copyright_ccname_tl\ license.\space \g_copyright_mitpermission_tl}
 	}{
@@ -962,10 +962,10 @@
    }
    \int_compare:nNnTF {\g_author_authorcnt_int} > {1} 
    		{   
-			\tl_gset:Nn \g__copyright_crwords_tl_ {The\ authors\ hereby\ grant} 
+			\tl_gset:Nn \g__copyright_crwords_tl_ {El\ authors\ hereby\ grant} 
 		}
 		{
-			\tl_gset:Nn \g__copyright_crwords_tl_ {The\ author\ hereby\ grants} 
+			\tl_gset:Nn \g__copyright_crwords_tl_ { \ \ } 
 		}
     \IfBooleanTF{#1}{
 	    \tl_gset:Nn \g_copyright_mitpermission_tl {\scan_stop:}
@@ -986,7 +986,7 @@
             \__author_block:
 			\__titlepage_blockskip:nn {12}{1.5}
             \__degree_block:
-            at~the\par
+            en~el\par
             \textls[60]{\text_uppercase:n { \g_titlepage_institution_name_tl }}\par
             \DegreeMonth\ \DegreeYear\par
 			\__titlepage_blockskip:nn {12}{2}
