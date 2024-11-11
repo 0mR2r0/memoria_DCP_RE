@@ -1,6 +1,32 @@
 
 \chapter{Marco conceptual}
 
+\section{Mecanismos de transferencia de calor}
+\subsection{Conducción}
+	Es la transferencia de energía térmica que se transmite por contacto entre las partículas del material, la razón de conducción es única según el tipo de material e influye su geometría y espesor del mismo. De manera conceptual se puede enunciar que \textit{la razón de la transferencia de calor por conducción a través de una capa plana es proporcional a la diferencia de temperaturas y a la superficie de contacto por donde se transfiere el calor, pero inversamente proporcional a su espesor del material}
+	\newline
+	Del enunciado anterior se puede representar en la siguiente ecuación agregando la $k$ como la conductividad térmica, que indica la capacidad que tiene un material para poder transferir energía térmica\cite{Cengel2022}.
+	\begin{equation}
+		\dot{Q_{c}}=kA\frac{\Delta T}{\Delta x}
+	\end{equation}
+\subsubsection{Difusividad térmica}
+	Esta propiedad de los materiales es útil para el análisis de la conducción de calor, debido a que representa la razón de difusión la energía térmica a través del material\cite{Cengel2022}.
+	\begin{equation}
+		\alpha = \frac{k}{\rho c_p}
+	\end{equation}
+	Donde $k$ indica la conductividad térmica, y el producto de la densidad con la capacidad calorífica $\rho c_p$ representa la cantidad de energía que se puede contener.
+\subsection{Convección}
+Esta manera de transferir el calor entre un material sólido y líquido o gaseoso, es una combinación del movimiento de los fluidos y la conducción térmica. Este mecanismo se puede representar como la rapidez de cuanto calor transferido por conducción es proporcional a la diferencia entre las temperaturas del solido con el liquido o gas. Que es conocida como la \textbf{ley de enfriamiento de Newton}\cite{Cengel2022}:
+	\begin{equation}
+		\dot{Q_{cv}} = hA_s(T_s-T_\infty)
+	\end{equation}
+Donde el coeficiente de transferencia de energía térmica por convección es representado por $h$, $A_s$ la superficie de contacto donde se esta transfiriendo calor, $T_s$ la temperatura del área de contacto y $T_\infty$ corresponde a la temperatura del liquido o gas que esta lo suficientemente lejano del solido.	
+\subsection{Radiación}
+ Este mecanismo transfiere energía térmica en forma de ondas electromagnéticas, una característica principal de este método es que no requiere un medio como en el caso de la conducción o convección. Esta forma de transferencia se puede expresar mediante la \textbf{ley de Stefan-Boltzmann}\cite{Cengel2022} para superficies reales:
+ \begin{equation}
+ 	\dot{Q_r}=\epsilon \sigma A_s T_{s}^4
+ \end{equation}
+ El coeficiente $\sigma$ representa la \textit{constante de Stefan-Boltzmann}, $\epsilon$ corresponde a la emisividad del material que esta en un intervalo $0\leq \epsilon \leq 1$, $A_s$ superficie que emite la radiación y su temperatura termodinámica $T_s$ en Kelvin. 
 \section{Almacenamiento de energ\'ia t\'ermica}
 En el desarrollo de sistemas de almacenamiento de energ\'ia t\'ermica se deben considerar los siguientes factores:
 \begin{itemize}
